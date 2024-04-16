@@ -17,22 +17,22 @@ namespace Heroes {
 
     std::unique_ptr<Action> behavior(Engine& engine, Entity& /*entity*/) {
         std::string key = engine.input.get_last_keypress();
-        if (key == "R") {
+        if (key == "R") { // rest
             return std::make_unique<Rest>();
         }
-        else if (key == "C") {
+        else if (key == "C") { // close door
             return std::make_unique<CloseDoor>();
         }
-        else if (key == "Up" || key == "W") {
+        else if (key == "Up" || key == "W") { // move up
             return std::make_unique<Move>(Vec{0, 1});
         }
-        else if (key == "Left" || key == "A") {
+        else if (key == "Left" || key == "A") { // move left
             return std::make_unique<Move>(Vec{-1, 0});
         }
-        else if (key == "Down" || key == "S") {
+        else if (key == "Down" || key == "S") { // move down
             return std::make_unique<Move>(Vec{0, -1});
         }
-        else if (key == "Right" || key == "D") {
+        else if (key == "Right" || key == "D") { // move right
             return std::make_unique<Move>(Vec{1, 0});
         }
         // when you say you are pointing to something, but do not allocate it, it will

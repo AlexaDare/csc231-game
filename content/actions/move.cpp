@@ -23,32 +23,12 @@ Result Move::perform(Engine& engine, std::shared_ptr<Entity> entity) {
         // try using and getting return alternative(OpenDoor{t.door}) to work later
     }
     else { // must be an empty tile that we can move onto
+        entity->change_direction(movement);
         entity->move_to(new_position);
         return success();
     }
 }
 
-Result perform(Engine& engine, std::shared_ptr<Entity> entity) {
-    Vec position = entity->get_position();
-    engine.dungeon.neighbors(position); // neighbors lets know what tile is in each of the four directions
-    std::vector<Vec> neighbors = engine.dungeon.neighbors(position);
-    bool closed_any_doors{false};
-    for (Vec neighbor : neighbors) {  // for each neighbor
-        Tile& tile = engine.dungeon.get_tile(neighbor);
-        if (tile.has_door() && tile.door->is_open()) {
-            tile.door->close();
-            closed_any_doors = true;
-        }
-    }
-
-    if (closed_any_doors) {
-        engine.events.create_event<UpdateFOV>();
-        return success();
-    }
-    else {
-        return failure(); // do not lose our turn if no doors were around us
-    }
-}
 
 
 
