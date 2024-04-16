@@ -3,6 +3,8 @@
 //
 
 #include "opendoor.h"
+
+#include "action.h"
 #include "door.h"
 #include "engine.h"
 #include "updatefov.h"
