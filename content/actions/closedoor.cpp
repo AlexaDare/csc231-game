@@ -6,7 +6,7 @@
 #include "entity.h"
 #include "updatefov.h"
 
-Result perform(Engine& engine, std::shared_ptr<Entity> entity) {
+Result CloseDoor::perform(Engine& engine, std::shared_ptr<Entity> entity) {
     Vec position = entity->get_position();
     engine.dungeon.neighbors(position); // neighbors lets know what tile is in each of the four directions
     std::vector<Vec> neighbors = engine.dungeon.neighbors(position);

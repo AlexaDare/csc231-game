@@ -8,7 +8,6 @@
 #include "tile.h"
 #include "updatefov.h"
 
-
 Move::Move(Vec movement)
     :movement{movement} {}
 
@@ -19,7 +18,8 @@ Result Move::perform(Engine& engine, std::shared_ptr<Entity> entity) {
         return failure(); // no moving into a wall or other entities
     }
     else if (t.has_door() && !t.door->is_open()) {
-        t.door->open(); // open doors entity runs into
+        return alternative(OpenDoor{*t.door});
+        // t.door->open(); // open doors entity runs into
         // try using and getting return alternative(OpenDoor{t.door}) to work later
     }
     else { // must be an empty tile that we can move onto

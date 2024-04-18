@@ -26,6 +26,9 @@ namespace Heroes {
         else if (key == "Up" || key == "W") { // move up
             return std::make_unique<Move>(Vec{0, 1});
         }
+//        else if (key == "Up" && key == "Left" || key == "W" && key == "A") { // move up and left
+//            return std::make_unique<Move>(Vec{-1, 1}); // does not seem to work
+        }
         else if (key == "Left" || key == "A") { // move left
             return std::make_unique<Move>(Vec{-1, 0});
         }
