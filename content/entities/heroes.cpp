@@ -6,11 +6,13 @@
 #include "move.h"
 #include "rest.h" // include because including rest
 //#include "vec.h"
+#include "sword.h"
 
 namespace Heroes {
     void make_wizard(std::shared_ptr<Entity>& hero) {
         hero->set_sprite("wizard");
         hero->set_max_health(10);
+        hero->add_to_inventory(std::make_shared<Sword>(3)); // put in parentheses how much damage it makes
         //        hero->behavior = behavior; // not yet 04/08/2024
         hero->behavior = behavior;
     }
