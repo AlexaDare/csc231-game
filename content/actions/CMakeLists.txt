@@ -3,7 +3,7 @@ add_library(actions
         move.cpp
         opendoor.cpp
         closedoor.cpp
-        #wander.cpp
+        wander.cpp
         #steal.cpp
 )
 

@@ -11,9 +11,8 @@
 namespace Heroes {
     void make_wizard(std::shared_ptr<Entity>& hero) {
         hero->set_sprite("wizard");
-        hero->set_max_health(10);
-        hero->add_to_inventory(std::make_shared<Sword>(3)); // put in parentheses how much damage it makes
-        //        hero->behavior = behavior; // not yet 04/08/2024
+        hero->set_max_health(30);
+        hero->add_to_inventory(std::make_shared<Sword>(5)); // put in parentheses how much damage it makes
         hero->behavior = behavior;
     }
 
@@ -30,7 +29,7 @@ namespace Heroes {
         }
 //        else if (key == "Up" && key == "Left" || key == "W" && key == "A") { // move up and left
 //            return std::make_unique<Move>(Vec{-1, 1}); // does not seem to work
-        }
+//        }
         else if (key == "Left" || key == "A") { // move left
             return std::make_unique<Move>(Vec{-1, 0});
         }
