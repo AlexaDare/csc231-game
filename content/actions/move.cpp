@@ -12,6 +12,7 @@ Move::Move(Vec movement)
     :movement{movement} {}
 
 Result Move::perform(Engine& engine, std::shared_ptr<Entity> entity) {
+    entity->change_direction(movement);
     Vec new_position = entity->get_position() + movement;
     Tile& t = engine.dungeon.get_tile(new_position);
     if (t.is_wall() || t.has_entity()) {
@@ -23,7 +24,6 @@ Result Move::perform(Engine& engine, std::shared_ptr<Entity> entity) {
         // try using and getting return alternative(OpenDoor{t.door}) to work later
     }
     else { // must be an empty tile that we can move onto
-        entity->change_direction(movement);
         entity->move_to(new_position);
         return success();
     }
