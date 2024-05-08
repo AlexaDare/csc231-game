@@ -1,5 +1,6 @@
 #include "move.h"
 
+#include "attack.h"
 #include "closedoor.h"
 #include "door.h"
 #include "engine.h"
@@ -15,8 +16,11 @@ Result Move::perform(Engine& engine, std::shared_ptr<Entity> entity) {
     entity->change_direction(movement);
     Vec new_position = entity->get_position() + movement;
     Tile& t = engine.dungeon.get_tile(new_position);
-    if (t.is_wall() || t.has_entity()) {
+    if (t.is_wall()) {
         return failure(); // no moving into a wall or other entities
+    }
+    else if (t.has_entity()) { // attacks entity if present
+        return alternative(Attack{*t.entity});
     }
     else if (t.has_door() && !t.door->is_open()) {
         return alternative(OpenDoor{*t.door});

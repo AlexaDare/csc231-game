@@ -1,6 +1,7 @@
 #include "entity.h"
 
 #include <sstream>
+#include <algorithm>
 
 #include "action.h"
 #include "engine.h"
@@ -172,7 +173,6 @@ std::vector<Sprite> Entity::get_sprites() const {
     }
 }
 
-
 void Entity::adjust_item_position() {
     std::shared_ptr<Item> item = get_current_item();
     if (item) {
@@ -188,3 +188,20 @@ void Entity::adjust_item_position() {
     }
 }
 
+// finding the current item the character is holding
+int Entity::get_current_item_index() {
+    return current_item;
+}
+
+// Dr. Brown said to add 05.01.2024
+
+void Entity::remove_item(Item* item) {
+    auto it = std::find_if(std::begin(inventory), std::end(inventory),
+                           [=](std::shared_ptr<Item>& i) {
+                               return item == i.get();
+                           });
+
+    if (it != inventory.end()) { // found the item
+        *it = nullptr;
+    }
+}

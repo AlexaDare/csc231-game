@@ -1,4 +1,5 @@
 #include "engine.h"
+#include "entity.h"
 #include "heroes.h"
 #include "monsters.h"
 #include <iostream>

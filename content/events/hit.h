@@ -6,7 +6,7 @@
 
 class Entity;
 
-Class Hit : public Event {
+class Hit : public Event {
 public:
     Hit(Entity& entity, int damage);
 

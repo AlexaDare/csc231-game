@@ -1,6 +1,7 @@
 #include "pathfinding.h"
 #include "dungeon.h"
 
+#include <algorithm>
 #include <queue>
 #include <unordered_map>
 

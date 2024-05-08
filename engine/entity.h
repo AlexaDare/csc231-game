@@ -55,6 +55,15 @@ public:
     void update();
     [[nodiscard]] std::vector<Sprite> get_sprites() const;
 
+    // Added stealing items, so added new function
+    int get_current_item_index();
+
+    // added bool to test if stolen item 04.29.2024
+    bool stolen = false;
+
+    // Dr. Brown said to add on 05.01.2024
+    void remove_item(Item* item);
+
 private:
     Engine& engine;
     AnimatedSprite sprite;
@@ -79,4 +88,6 @@ private:
 
     friend class Entities;
 };
+
+
 

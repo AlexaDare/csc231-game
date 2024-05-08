@@ -1,10 +1,10 @@
 add_library(actions
-        rest.cpp
+        attack.cpp
+        closedoor.cpp
         move.cpp
         opendoor.cpp
-        closedoor.cpp
+        rest.cpp
         wander.cpp
-        #steal.cpp
 )
 
 target_include_directories(actions PUBLIC ${CMAKE_CURRENT_SOURCE_DIR})

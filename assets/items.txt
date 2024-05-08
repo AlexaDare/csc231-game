@@ -1,5 +1,7 @@
 objects.png
 
+sticky_hands 293 16 1 1
+
 knife 293 18 6 13
 
 spear 293 177 6 30
