@@ -82,8 +82,9 @@ namespace Monsters {
             if (path.size() > 1) {
                 auto movement = path.at(1) - path.at(0);
                 return std::make_unique<Move>(movement);
+//                engine.hero->stolen = true;
             } else {
-                engine.hero->stolen = true;
+                engine.hero->stolen = false;
             }
         }
         // runs away with item even when hero is visible

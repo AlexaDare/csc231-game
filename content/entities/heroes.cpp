@@ -13,6 +13,10 @@ namespace Heroes {
         hero->set_sprite("wizard");
         hero->set_max_health(30); // setting health
         hero->add_to_inventory(std::make_shared<Sword>(5)); // put in parentheses how much damage it makes
+        hero->add_to_inventory(std::make_shared<Sword>(5));
+        hero->add_to_inventory(std::make_shared<Sword>(5));
+        hero->add_to_inventory(std::make_shared<Sword>(5));
+        hero->add_to_inventory(std::make_shared<Sword>(5));
         hero->behavior = behavior;
     }
 

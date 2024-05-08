@@ -33,7 +33,7 @@ int main() {
             Monsters::make_skeleton(monster);
         }
 
-        for (int i = 0; i < 1; ++i) { // create one monster
+        for (int i = 0; i < 3; ++i) { // create one monster
             std::shared_ptr<Entity> monster = engine.create_monster();
             Monsters::make_wizard(monster);
         }
